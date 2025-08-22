@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>admin page</title>
+</head>
+<body>
+    <form id="form" method="post" action="/">
+        <label for="password">Password</label>
+        <input id="password" type="text">
+
+        <label for="inp">Amount</label>
+        <input id="inp" type="number">
+        <p>A: {{scores[0][0]}}   <button onclick="updateScore(1, 'False')">-</button> <button onclick="updateScore(1, 'True')">+</button></p>
+        <p>B: {{scores[1][0]}}   <button onclick="updateScore(2, 'False')">-</button> <button onclick="updateScore(2, 'True')">+</button></p>
+        <p>C: {{scores[2][0]}}   <button onclick="updateScore(3, 'False')">-</button> <button onclick="updateScore(3, 'True')">+</button></p>
+        <p>D: {{scores[3][0]}}   <button onclick="updateScore(4, 'False')">-</button> <button onclick="updateScore(4, 'True')">+</button></p>
+        <p>E: {{scores[4][0]}}   <button onclick="updateScore(5, 'False')">-</button> <button onclick="updateScore(5, 'True')">+</button></p>
+        <p>F: {{scores[5][0]}}   <button onclick="updateScore(6, 'False')">-</button> <button onclick="updateScore(6, 'True')">+</button></p>
+    </form>
+    <script src="{{url_for('static', filename='admin.js')}}"></script>
+</body>
+</html>
