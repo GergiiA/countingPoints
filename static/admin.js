@@ -29,7 +29,11 @@ function updateScore(homeroom, addition){
    form=document.getElementById("form")
    amount=document.getElementById("inp").value
    pas=document.getElementById("password").value
-   form.action="/add/"+homeroom+"/"+amount+"/"+addition+"/"+pas
+   if(addition==true){
+        form.action="/add/"+homeroom+"/"+amount+"/"+pas}
+   else{
+        form.action="/add/"+homeroom+"/"+(-amount)+"/"+pas
+   }
    //console.log(form.action)
    //console.log("/add/"+homeroom+"/"+amount+"/"+addition)
    addCookie("value", amount)

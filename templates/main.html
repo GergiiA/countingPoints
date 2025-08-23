@@ -22,12 +22,22 @@ new Chart("myChart", {
     }]
   },
   options: {
+     scales: {
+        yAxes: [{
+            ticks: {
+                beginAtZero: true
+            }
+        }]
+     },
+
+
     legend: {display: false},
     title: {
       display: true,
       text: "grade 11 competition"
     }
-  }
+
+    }
 });
 </script>
 </body>
