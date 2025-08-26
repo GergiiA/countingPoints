@@ -1,7 +1,7 @@
 import flask
 import sqlite3
 import hashlib
-from flask import render_template, request, redirect, url_for
+from flask import render_template, redirect, url_for
 
 
 app=flask.Flask(__name__)
@@ -66,7 +66,7 @@ def admin():
 def add(hmRm, amount, pas):
     #rint(pas)
     #print(passwordHash)
-    #print(hashlib.sha256(pas.encode("utf-8")).hexdigest())
+
     print('add')
     if not checkPassword(pas):
         print('add redirected home')

@@ -3,7 +3,7 @@
 //xmlHttp.send( null );
 //console.log(xmlHttp.responseText)
 
-
+/*
 function getCookie(name) {
     const cookieList = document.cookie.split("; ")
     for (const cookie of cookieList) {
@@ -16,7 +16,7 @@ function getCookie(name) {
 function addCookie(name, value) {
 
     document.cookie = name+"="+value+"; path=/"
-}
+}*/
 
 function sendRequest(url){
     var xmlHttp = new XMLHttpRequest();
