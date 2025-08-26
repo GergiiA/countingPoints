@@ -27,6 +27,13 @@ function sendRequest(url){
     return xmlHttp.responseText;
 }
 
+function loadPassAndNum(){
+    inp=document.getElementById("inp")
+    inp.value=Number(localStorage.getItem("value"))
+    pas=document.getElementById("password")
+    pas.value=localStorage.getItem("password")
+}
+
 function updateScore(homeroom, addition){
    form=document.getElementById("form")
    amount=document.getElementById("inp").value
@@ -51,22 +58,16 @@ function updateScore(homeroom, addition){
              form.submit()}
         else{
            alert("Wrong password")}
-        //alert('second alert')}
+   }
    else{
         alert("You need to enter a password")}
    //alert('forth alert')
-    }
 }
+
 
 
 
 //sendRequest("/checkPassword/"+'yo')
-function onLoad(){
-    inp=document.getElementById("inp")
-    inp.value=Number(localStorage.getItem("value"))
-    pas=document.getElementById("password")
-    pas.value=localStorage.getItem("password")
-}
 
 
 //console.log('acjfghjidfsuzgh')
