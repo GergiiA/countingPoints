@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Grade 11 competition</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0/dist/chart.umd.min.js"></script>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+    </style>
+</head>
+<body>
+
+
+    <div>
+        <h1>Grade 11 competition</h1>
+        <canvas id="chart" style="width:100%;" aria-label="Hello ARIA World" role="img"></canvas>
+        <script>
+
+var xValues = ["11A", "11B", "11C", "11D", "11E", "11F"];
+var yValues = {{scores}};
+var barColors = ["rgba(255, 0, 0, 0.6)", "rgba(0, 255, 0, 0.6)","rgba(0, 0, 255, 0.6)","rgba(200, 150, 30, 0.6)","rgba(150, 50, 20, 0.6)", "rgba(255, 255, 0, 0.6)"];
+
+var canvas=document.getElementById('chart');
+
+
+Chart.defaults.font.size = 16;
+
+
+let chart = new Chart(canvas, {
+  type: "bar",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+
+  options: {
+
+     scales: {
+      y: {
+        beginAtZero: true
+      }
+    },
+     plugins: {
+        customCanvasBackgroundColor: {
+        color: 'lightGreen'
+      }
+     },
+
+
+    legend: {display: false},
+    title: {
+      font: {size: 20},
+      display: true,
+      text: "Total scores per homeroom"
+    }
+
+    }
+});
+
+</script>
+    </div>
+</body>
+</html>

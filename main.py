@@ -49,7 +49,7 @@ def home():
         scores=cursor.fetchall()
         scores=[score[0] for score in scores]
         #print(scores)
-    return render_template('main.html', scores=scores)
+    return render_template('newHome.html', scores=scores)
 
 @app.route('/admin/')
 def admin():
@@ -61,7 +61,6 @@ def admin():
         ''')
         scores = cursor.fetchall()
     return render_template('admin.html', scores=scores)
-
 
 @app.route('/add/<hmRm>/<amount>/<pas>', methods=['GET', 'POST'])
 def add(hmRm, amount, pas):
@@ -94,5 +93,7 @@ def anotherCheckPass(password):
 @app.errorhandler(404)
 def pageNotFound(e):
     return redirect(url_for('home'))
+
+
 
 app.run()
