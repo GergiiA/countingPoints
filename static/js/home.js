@@ -7,8 +7,11 @@ const data = {
     {
       label: 'Dataset 1',
       data: yValues,
-      borderColor: ' #000000',
-      backgroundColor: barColors
+      borderColor: '#000000',
+      backgroundColor: barColors,
+      hoverBackgroundColor: barColors2,
+      borderWidth: 2,
+      borderColor: barColors2,
     }
   ]
 };
@@ -25,6 +28,9 @@ const config = {
       title: {
         display: false,
         text: 'Chart.js Bar Chart'
+      },
+      legend: {
+        display: false
       }
     }
   },

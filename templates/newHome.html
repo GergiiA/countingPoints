@@ -19,7 +19,15 @@
 
 var xValues = ["11A", "11B", "11C", "11D", "11E", "11F"];
 var yValues = {{scores}};
-var barColors = ["rgba(255, 0, 0, 0.6)", "rgba(0, 255, 0, 0.6)","rgba(0, 0, 255, 0.6)","rgba(200, 150, 30, 0.6)","rgba(150, 50, 20, 0.6)", "rgba(255, 255, 0, 0.6)"];
+var barColors = [
+    "rgba(255, 99, 132, 0.6)",
+    "rgba(54, 162, 235, 0.6)",
+    "rgba(255, 206, 86, 0.6)",
+    "rgba(75, 192, 192, 0.6)",
+    "rgba(153, 102, 255, 0.6)",
+    "rgba(255, 159, 64, 0.6)" ];
+var barColors2 = barColors.map(c => c.replace(/rgba\((\d+), (\d+), (\d+), [\d.]+\)/, 'rgba($1, $2, $3, 1)'));
+
 </script>
 <script src="{{url_for('static', filename='js/home.js')}}"></script>
     </div>
