@@ -66,7 +66,7 @@ def admin():
 def add(hmRm, amount, pas):
     #rint(pas)
     #print(passwordHash)
-    #print(hashlib.sha256(pas.encode("utf-8")).hexdigest())
+
     print('add')
     if not checkPassword(pas):
         print('add redirected home')
