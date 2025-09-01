@@ -4,13 +4,17 @@
     <meta charset="UTF-8">
     <title>admin page</title>
 </head>
-<body onload="loadPassAndNum()">
+<body onLoad="loadPassAndNum()">
     <form id="form" method="post" action="/">
         <label for="password">Password</label>
         <input id="password" type="text">
 
         <label for="inp">Amount</label>
         <input id="inp" type="number">
+
+        <label for="reason">Reason</label>
+        <input id="reason" type="text">
+
         <p>A: {{scores[0][0]}}   <button onclick="updateScore(1, false)" type="button">-</button> <button onclick="updateScore(1, true)" type="button">+</button></p>
         <p>B: {{scores[1][0]}}   <button onclick="updateScore(2, false)" type="button">-</button> <button onclick="updateScore(2, true)" type="button">+</button></p>
         <p>C: {{scores[2][0]}}   <button onclick="updateScore(3, false)" type="button">-</button> <button onclick="updateScore(3, true)" type="button">+</button></p>

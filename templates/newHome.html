@@ -12,8 +12,8 @@
 <body>
 
 
-    <div>
-        <h1>Grade 11 competition</h1>
+    <div >  <!-- This div is for bar graph -->
+        <h1 class="title">Grade 11 competition</h1>
         <canvas id="chart" style="width:100%;" aria-label="Hello ARIA World" role="img"></canvas>
         <script>
 
@@ -27,9 +27,15 @@ var barColors = [
     "rgba(153, 102, 255, 0.6)",
     "rgba(255, 159, 64, 0.6)" ];
 var barColors2 = barColors.map(c => c.replace(/rgba\((\d+), (\d+), (\d+), [\d.]+\)/, 'rgba($1, $2, $3, 1)'));
-
-</script>
-<script src="{{url_for('static', filename='js/home.js')}}"></script>
+        </script>
     </div>
+<script> var logs = {{ logs | tojson }};</script>
+    <div class="logBox">
+        <h1 class="title">Text idk what to write here</h1>
+        <table id="logBox">
+        </table>
+    </div>
+
+<script src="{{url_for('static', filename='js/home.js')}}"></script>
 </body>
 </html>

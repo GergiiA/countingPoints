@@ -2,6 +2,7 @@ import flask
 import sqlite3
 import hashlib
 from flask import render_template, redirect, url_for
+import datetime
 
 
 app=flask.Flask(__name__)
@@ -13,7 +14,9 @@ with sqlite3.connect('database.db') as database:
        CREATE TABLE IF NOT EXISTS logs(
        id INTEGER PRIMARY KEY AUTOINCREMENT, 
        classId INTEGER,
-       amount INTEGER)
+       amount INTEGER,
+       submitText TEXT,
+       addTime TEXT)
        ''')
     cursor.execute('''
        CREATE TABLE IF NOT EXISTS main(
@@ -48,8 +51,13 @@ def home():
         ''')
         scores=cursor.fetchall()
         scores=[score[0] for score in scores]
+        cursor.execute('''
+                       SELECT * FROM logs;
+                       ''')
+        logs=cursor.fetchall()
+        print(logs)
         #print(scores)
-    return render_template('newHome.html', scores=scores)
+    return render_template('newHome.html', scores=scores, logs=logs)
 
 @app.route('/admin/')
 def admin():
@@ -62,8 +70,8 @@ def admin():
         scores = cursor.fetchall()
     return render_template('admin.html', scores=scores)
 
-@app.route('/add/<hmRm>/<amount>/<pas>', methods=['GET', 'POST'])
-def add(hmRm, amount, pas):
+@app.route('/add/<hmRm>/<amount>/<pas>/<submitMessage>', methods=['GET', 'POST'])
+def add(hmRm, amount, pas, submitMessage):
     #rint(pas)
     #print(passwordHash)
 
@@ -72,14 +80,14 @@ def add(hmRm, amount, pas):
         print('add redirected home')
         return redirect(url_for("home"))
 
-
+    time=datetime.datetime.now().strftime("%B %d")
     with sqlite3.connect('database.db') as database:
         cursor = database.cursor()
-        cursor.execute(f'''
-        UPDATE main SET score = score + {amount} WHERE id={hmRm}
-        ''')
-        cursor.execute(f'''
-        INSERT INTO logs(classId, amount) VALUES({hmRm}, {amount})
+        cursor.executescript(f'''
+        UPDATE main SET score = score + {amount} WHERE id={hmRm};
+        
+        
+        INSERT INTO logs(classId, amount, submitText, addTime) VALUES("{hmRm}", "{amount}", "{submitMessage}", "{time}");
         ''')
         database.commit()
 
