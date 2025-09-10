@@ -5,7 +5,14 @@
     <title>admin page</title>
 </head>
 <body onLoad="loadPassAndNum()">
-    <form id="form" method="post" action="/">
+    <form id="form" method="get" action="/">
+        <select id="selectBox" onchange="handleGradeChange()">
+            <option value="9">Grade 9</option>
+            <option value="10">Grade 10</option>
+            <option value="11">Grade 11</option>
+            <option value="12">Grade 12</option>
+        </select>
+
         <label for="password">Password</label>
         <input id="password" type="text">
 
@@ -15,13 +22,15 @@
         <label for="reason">Reason</label>
         <input id="reason" type="text">
 
-        <p>A: {{scores[0][0]}}   <button onclick="updateScore(1, false)" type="button">-</button> <button onclick="updateScore(1, true)" type="button">+</button></p>
-        <p>B: {{scores[1][0]}}   <button onclick="updateScore(2, false)" type="button">-</button> <button onclick="updateScore(2, true)" type="button">+</button></p>
-        <p>C: {{scores[2][0]}}   <button onclick="updateScore(3, false)" type="button">-</button> <button onclick="updateScore(3, true)" type="button">+</button></p>
-        <p>D: {{scores[3][0]}}   <button onclick="updateScore(4, false)" type="button">-</button> <button onclick="updateScore(4, true)" type="button">+</button></p>
-        <p>E: {{scores[4][0]}}   <button onclick="updateScore(5, false)" type="button">-</button> <button onclick="updateScore(5, true)" type="button">+</button></p>
-        <p>F: {{scores[5][0]}}   <button onclick="updateScore(6, false)" type="button">-</button> <button onclick="updateScore(6, true)" type="button">+</button></p>
+        <p> A: <strong id="scoreA"> 0 </strong> <button onclick="updateScore(1, false)" type="button">-</button> <button onclick="updateScore(1, true)" type="button">+</button> </p>
+        <p> B: <strong id="scoreB"> 0 </strong> <button onclick="updateScore(2, false)" type="button">-</button> <button onclick="updateScore(2, true)" type="button">+</button> </p>
+        <p> C: <strong id="scoreC"> 0 </strong> <button onclick="updateScore(3, false)" type="button">-</button> <button onclick="updateScore(3, true)" type="button">+</button> </p>
+        <p> D: <strong id="scoreD"> 0 </strong> <button onclick="updateScore(4, false)" type="button">-</button> <button onclick="updateScore(4, true)" type="button">+</button> </p>
+        <p> E: <strong id="scoreE"> 0 </strong> <button onclick="updateScore(5, false)" type="button">-</button> <button onclick="updateScore(5, true)" type="button">+</button> </p>
+        <p> F: <strong id="scoreF"> 0 </strong> <button onclick="updateScore(6, false)" type="button">-</button> <button onclick="updateScore(6, true)" type="button">+</button> </p>
     </form>
+    <script> var data={{data}} </script>
     <script src="{{url_for('static', filename='js/admin.js')}}"></script>
+
 </body>
 </html>
